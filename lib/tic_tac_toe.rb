@@ -131,7 +131,7 @@ class TicTacToe
     end
   end
 
-  
+
 
   def full?
 
@@ -185,8 +185,3 @@ class TicTacToe
     end
   end
 end
-
-
-
-
-
