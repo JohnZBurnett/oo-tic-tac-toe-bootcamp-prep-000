@@ -130,61 +130,63 @@ class TicTacToe
       puts "Cat's Game!"
     end
   end
-end
 
+  
 
+  def full?
 
-
-
-
-def full?
-
-  # check all elements and return TRUE only if all spaces are occupied
-  @board.all? do |space|
-    space == "X" || space == "O"
-  end
-
-end
-
-def draw?
-
-  if won?
-    false
-  elsif !full?
-    false
-  elsif full?
-    true
-
-  end
-
-end
-
-
-def over?
-
-  if won?
-    true
-  elsif draw?
-    true
-  else
-    false
-  end
-
-end
-
-def winner
-
-  win_positions = won?
-
-  if won?
-
-    if @board[win_positions[0]] == "X"
-      return "X"
-    elsif @board[win_positions[0]] == "O"
-      return "O"
+    # check all elements and return TRUE only if all spaces are occupied
+    @board.all? do |space|
+      space == "X" || space == "O"
     end
 
-      # return nil if won? does not evaluate to true - no winner
-      return nil
+  end
+
+  def draw?
+
+    if won?
+      false
+    elsif !full?
+      false
+    elsif full?
+      true
+
+    end
+
+  end
+
+
+  def over?
+
+    if won?
+      true
+    elsif draw?
+      true
+    else
+      false
+    end
+
+  end
+
+  def winner
+
+    win_positions = won?
+
+    if won?
+
+      if @board[win_positions[0]] == "X"
+        return "X"
+      elsif @board[win_positions[0]] == "O"
+        return "O"
+      end
+
+        # return nil if won? does not evaluate to true - no winner
+        return nil
+    end
   end
 end
+
+
+
+
+
