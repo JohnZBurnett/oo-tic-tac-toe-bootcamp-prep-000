@@ -44,7 +44,7 @@ class TicTacToe
 
   def won?
 
-    @WIN_COMBINATIONS.each do |combination|
+    WIN_COMBINATIONS.each do |combination|
 
       # set the places we are checking
       win_index_1 = combination[0]
