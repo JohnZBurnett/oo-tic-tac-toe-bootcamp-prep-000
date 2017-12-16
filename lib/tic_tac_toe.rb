@@ -1,30 +1,30 @@
 class TicTacToe
-  def initialize 
+  def initialize
     @board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
   end
 
   def current_player
     which_turn = turn_count(@board)
-  
+
     which_turn.even? ? "X" : "O"
-  
+
   end
 
   def turn_count
-  
+
     counter = 0
-  
+
     @board.each do |space|
       if space == "X" || space == "O"
         counter += 1
       end
-  
-  
+
+
     end
   return counter
-  
+
   end
-  
+
   # Helper Method
   def position_taken?(index)
     !(@board[index].nil? || @board[index] == " ")
@@ -41,36 +41,36 @@ class TicTacToe
     [0, 4, 8],
     [2, 4, 6]
   ]
-  
+
   def won?
-  
+
     @WIN_COMBINATIONS.each do |combination|
-  
+
       # set the places we are checking
       win_index_1 = combination[0]
       win_index_2 = combination[1]
       win_index_3 = combination[2]
-  
+
       # fetch values from board
       position_1 = @board[win_index_1]
       position_2 = @board[win_index_2]
       position_3 = @board[win_index_3]
-  
+
       if position_1 == "X" && position_2 == "X" && position_3 == "X"
         return [win_index_1, win_index_2, win_index_3]
-  
+
       elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
           return [win_index_1, win_index_2, win_index_3]
-  
+
       end
-  
-  
-  
+
+
+
     end
-  
+
     # we now need to return FALSE if true was never returned during the "each" loop - this covers any situation with no win condition
     return false
-  
+
   end
 
   # Helper Methods
@@ -81,24 +81,24 @@ class TicTacToe
     puts "-----------"
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
-  
+
   def input_to_index(user_input)
     user_input.to_i - 1
   end
-  
+
   def move(board, index, current_player)
     board[index] = current_player
   end
-  
+
   def position_taken?(board, location)
     board[location] != " " && board[location] != ""
   end
-  
+
   def valid_move?(board, index)
     index.between?(0,8) && !position_taken?(board, index)
   end
-  
-  
+
+
   def turn(board)
     puts "Please enter 1-9:"
     input = gets.strip
@@ -110,19 +110,19 @@ class TicTacToe
     else
       turn(board)
     end
-  
+
   end
-  
+
       # Define your play method below
   def play
-  
-  
+
+
     until over?()
       turn()
       won?()
       draw?()
     end
-  
+
     if won?()
       game_winner = winner()
       puts "Congratulations #{game_winner}!"
@@ -188,4 +188,3 @@ def winner
       return nil
   end
 end
-
